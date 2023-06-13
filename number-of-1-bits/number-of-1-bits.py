@@ -4,5 +4,4 @@ class Solution(object):
         :type n: int
         :rtype: int
         """
-        n_binary = bin(n)[2:]
-        return n_binary.count('1')
+        return bin(n).count('1')
