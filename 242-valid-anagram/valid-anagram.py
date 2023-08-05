@@ -15,4 +15,8 @@ class Solution(object):
             counts_s[ord(s[i]) - 97] += 1
             counts_t[ord(t[i]) - 97] += 1
         
-        return counts_s == counts_t
+        for i in range(26):
+            if counts_s[i] != counts_t[i]:
+                return False
+        
+        return True
