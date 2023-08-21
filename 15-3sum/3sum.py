@@ -20,8 +20,12 @@ class Solution(object):
                     continue
                 two_sum = nums[left] + nums[right]
                 if two_sum == target:
-                    a = [nums[i], nums[left], nums[right]]
-                    a.sort()
+                    if nums[i] < nums[left]:
+                        a = [nums[i], nums[left], nums[right]]
+                    elif nums[i] < nums[right]:
+                        a = [nums[left], nums[i],nums[right]]
+                    else:
+                        a = [nums[left], nums[right], nums[i]]
                     hashmap[tuple(a)] = a
                     left += 1
                     right -= 1
