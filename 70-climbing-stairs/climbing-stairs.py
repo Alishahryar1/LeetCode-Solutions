@@ -1,6 +1,6 @@
 class Solution(object):
     def helper(self, n, ways):
-        if n in ways > 0:
+        if n in ways:
             return ways[n]
         
         ways[n] = 0
