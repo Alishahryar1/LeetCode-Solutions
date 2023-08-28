@@ -4,37 +4,24 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    def sort_key(self, ptr):
+        return ptr.val
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
         :rtype: ListNode
         """
-        L = 0
+        List = []
         for ptr in lists:
-            while (ptr != None):
-                L += 1
+            while ptr != None:
+                List.append(ptr)
                 ptr = ptr.next
+        List.sort(key = self.sort_key)
         
-        tail = None
-        head = None
-        for i in range(L):
-            val_min = float('inf')
-            i_min = -1
-            for i, ptr in enumerate(lists):
-                if ptr == None:
-                    continue
-                if ptr.val <= val_min:
-                    val_min = ptr.val
-                    i_min = i
-            if tail == None:
-                head = lists[i_min]
-                tail = head
-                lists[i_min] = lists[i_min].next
-                tail.next = None
-            else:
-                tail.next = lists[i_min]
-                lists[i_min] = lists[i_min].next
-                tail.next.next = None
-                tail = tail.next
+        if len(List) == 0:
+            return None
         
-        return head
+        for i in range(len(List)):
+            List[i - 1].next = List[i]
+        List[-1].next = None
+        return List[0]
