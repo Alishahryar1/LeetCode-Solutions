@@ -4,18 +4,20 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    def helper(self, prev, curr):
+        if curr.next == None:
+            curr.next = prev
+            return curr
+        temp = curr.next
+        curr.next = prev
+        return self.helper(curr, temp)
+        
+
     def reverseList(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
         """
-        if head == None or head.next == None:
+        if head == None:
             return head
-        prev = None
-        curr = head
-        while (curr != None):
-            temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
-        return prev
+        return self.helper(None, head)
