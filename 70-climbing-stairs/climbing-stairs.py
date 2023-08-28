@@ -17,6 +17,8 @@ class Solution(object):
         return ways[n]
     
     def climbStairs(self, n):
+        if n <= 3:
+            return n
         ways = {}
         ways[1] = 1
         ways[2] = 2
