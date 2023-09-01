@@ -9,8 +9,10 @@ class Solution(object):
         total_h = 0
         for pile in piles:
             total_h += self.ceil(pile, k)
+            if total_h > h:
+                return False
         
-        return total_h <= h
+        return True
 
     def minEatingSpeed(self, piles, h):
         """
@@ -20,12 +22,13 @@ class Solution(object):
         """
         L = 1
         R = max(piles)
+        min_k = float('inf')
         while L <= R:
             m = (L + R)//2
-            g = [self.canFinish(m - 1, h, piles), self.canFinish(m, h, piles), self.canFinish(m, h, piles)]
-            if g in [[False, False, False], [False, False, True]]:
-                L = m + 1
-            elif g == [True, True, True]:
+            canFinish = self.canFinish(m, h, piles)
+            if canFinish:
+                min_k = min(min_k, m)
                 R = m - 1
             else:
-                return m
+                L = m + 1
+        return min_k
