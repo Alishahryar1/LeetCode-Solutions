@@ -11,12 +11,13 @@ class Solution(object):
         """
         L = 1
         R = n
+        min_v = float('inf')
         while (L <= R):
             m = (L + R)//2
-            g = [isBadVersion(m - 1),isBadVersion(m),isBadVersion(m + 1)]
-            if g == [True, True, True]:
+            g = isBadVersion(m)
+            if g:
+                min_v = min(min_v, m)
                 R = m - 1
-            elif g == [False, False, False] or g == [False, False, True]:
-                L = m + 1
             else:
-                return m
+                L = m + 1
+        return min_v
