@@ -1,4 +1,5 @@
 class Solution(object):
+    
     def canFinish(self, k, h, piles):
         total_h = 0
         for pile in piles:
@@ -16,10 +17,10 @@ class Solution(object):
         min_k = R
         while L <= R:
             m = (L + R)//2
-            canFinish = self.canFinish(float(m), h, piles)
-            if canFinish:
+            if self.canFinish(float(m), h, piles):
                 min_k = min(min_k, m)
                 R = m - 1
             else:
                 L = m + 1
+
         return min_k
