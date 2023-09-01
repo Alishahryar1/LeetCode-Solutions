@@ -3,9 +3,6 @@ class Solution(object):
         return int(-1 * a // b * -1)
 
     def canFinish(self, k, h, piles):
-        if k == 0:
-            return False
-        
         total_h = 0
         for pile in piles:
             total_h += self.ceil(pile, k)
