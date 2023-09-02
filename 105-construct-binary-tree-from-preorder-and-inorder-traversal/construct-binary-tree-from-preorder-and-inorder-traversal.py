@@ -16,11 +16,7 @@ class Solution(object):
         temp = TreeNode(preorder[0])
         if len(preorder) == 1:
             return temp
-        for i, num in enumerate(inorder):
-            if num == preorder[0]:
-                break
-        nums_left = i
-        nums_right = len(inorder) - (nums_left + 1)
-        temp.left = self.buildTree(preorder[1: 1 + nums_left], inorder[:i])
-        temp.right = self.buildTree(preorder[1 + nums_left:], inorder[i + 1:])
+        i = inorder.index(preorder[0])
+        temp.left = self.buildTree(preorder[1: 1 + i], inorder[:i])
+        temp.right = self.buildTree(preorder[1 + i:], inorder[i + 1:])
         return temp
