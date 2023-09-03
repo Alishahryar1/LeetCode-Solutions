@@ -5,17 +5,6 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
-    def helper(self, root, targetSum, currSum):
-        if root == None:
-            return False
-        if root.left == None and root.right == None:
-            return currSum + root.val == targetSum
-        elif root.left == None:
-            return self.helper(root.right, targetSum, currSum + root.val)
-        elif root.right == None:
-            return self.helper(root.left, targetSum, currSum + root.val)
-        else:
-            return self.helper(root.right, targetSum, currSum + root.val) or self.helper(root.left, targetSum, currSum + root.val)
             
     def hasPathSum(self, root, targetSum):
         """
@@ -23,4 +12,13 @@ class Solution(object):
         :type targetSum: int
         :rtype: bool
         """
-        return self.helper(root, targetSum, 0)
+        if root == None:
+            return False
+        if root.left == None and root.right == None and targetSum - root.val == 0:
+            return True
+        if self.hasPathSum(root.left, targetSum - root.val):
+            return True
+        if self.hasPathSum(root.right, targetSum - root.val):
+            return True
+        
+        return False
