@@ -4,12 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        present = {}
+        presentMap = {}
         for num in nums:
-            present[num] = False
-        for num in nums:
-            if not present[num]:
-                present[num] = True
+            if num not in presentMap:
+                presentMap[num] = 1
             else:
+                presentMap[num] += 1
+            if presentMap[num] >= 2:
                 return True
+        
         return False
