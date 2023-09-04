@@ -5,9 +5,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hashmap = {}
+        presentMap = {}
         for i, num in enumerate(nums):
             diff = target - num
-            if diff in hashmap:
-                return [hashmap[diff], i]
-            hashmap[num] = i
+            if diff in presentMap:
+                return [i, presentMap[diff]]
+            presentMap[num] = i
