@@ -25,8 +25,6 @@ class KthLargest(object):
             return self.heap[1]
         
         if val > self.heap[1]: 
-            if len(self.heap) == 1:
-                return None
             if len(self.heap) == 2:
                 self.heap[1] = val
             else:
