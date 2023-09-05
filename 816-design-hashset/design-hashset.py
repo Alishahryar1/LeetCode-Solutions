@@ -45,6 +45,7 @@ class MyHashSet(object):
         while (self.hashSet[index] != None):
             if self.hashSet[index] == key:
                 self.hashSet[index] = -1
+                self.size -= 1
                 return
             index += 1
             index = index % self.capacity
