@@ -7,9 +7,6 @@ class Solution(object):
         """
         dp = [0] * (amount + 1)
         for coin in range(1, amount + 1):
-            if coin in coins:
-                dp[coin] = 1
-                continue
             dp[coin] = float('inf')
             for c in coins:
                 if coin - c >= 0:
