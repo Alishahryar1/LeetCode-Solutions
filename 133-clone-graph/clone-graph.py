@@ -27,7 +27,6 @@ class Solution(object):
                         continue
                     clone_neighbor = Node(neighbor.val)
                     clone_curr.neighbors.append(clone_neighbor)
-                    
                     queue.append((neighbor.val, neighbor, clone_neighbor))
                     visited[neighbor.val] = clone_neighbor
         
