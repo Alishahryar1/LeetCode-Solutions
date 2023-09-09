@@ -7,7 +7,7 @@ class Solution(object):
         rows, cols = len(obstacleGrid), len(obstacleGrid[0])
         prev_row = [0] * cols
         for r in range(rows):
-            curr_row = [1] * cols
+            curr_row = [0] * cols
             for c in range(cols):
                 if obstacleGrid[r][c] == 1:
                     curr_row[c] = 0
@@ -18,5 +18,6 @@ class Solution(object):
                 else:
                     curr_row[c] = curr_row[c - 1] + prev_row[c]
             prev_row = curr_row
+        
         return curr_row[-1]
         
