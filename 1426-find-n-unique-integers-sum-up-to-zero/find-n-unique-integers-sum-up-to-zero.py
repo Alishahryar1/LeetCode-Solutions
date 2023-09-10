@@ -5,10 +5,8 @@ class Solution(object):
         :rtype: List[int]
         """
         output = [0] * n
-        total = 0
         for i in range(1, n):
             output[i - 1] = i
-            total += i
-        output[-1] = -total
+            output[-1] -= i
         return output
         
