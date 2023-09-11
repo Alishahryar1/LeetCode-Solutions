@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         hashmap = {}
-        hashcodes = []
         for string in strs:
             sorted_string = ''.join(sorted(string))
             if sorted_string not in hashmap:
