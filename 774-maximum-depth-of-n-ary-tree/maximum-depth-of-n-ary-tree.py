@@ -14,7 +14,7 @@ class Solution(object):
         """
         if root == None:
             return 0
-        if root.children == []:
+        if root.children == None:
             return 1
         max_depth = 0
         for child in root.children:
