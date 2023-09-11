@@ -1,7 +1,7 @@
 class Solution(object):
 
     def helper(self, nums, output, i, subset):
-        if i >= len(nums):
+        if i == len(nums):
             output.append(subset)
             return
         self.helper(nums, output, i + 1, subset + [nums[i]])
