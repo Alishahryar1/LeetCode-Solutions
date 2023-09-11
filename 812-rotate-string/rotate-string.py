@@ -15,3 +15,4 @@ class Solution(object):
             s.insert(0, s.pop())
             if s == goal:
                 return True
+        return False
