@@ -20,9 +20,7 @@ class TwoSum(object):
         for num, count in self.num_counts.items():
             diff = value - num
             if diff in self.num_counts:
-                if diff == num and self.num_counts[diff] > 1:
-                    return True
-                elif diff != num:
+                if diff != num or (diff == num and self.num_counts[diff] > 1):
                     return True
 
         return False
