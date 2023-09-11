@@ -18,8 +18,4 @@ class Solution(object):
             counts_s[self.index(s[i])] += 1
             counts_t[self.index(t[i])] += 1
         
-        for i in range(26):
-            if counts_s[i] != counts_t[i]:
-                return False
-        
-        return True
+        return counts_s == counts_t
