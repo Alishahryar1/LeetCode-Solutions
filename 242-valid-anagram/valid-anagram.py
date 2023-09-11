@@ -1,6 +1,7 @@
 class Solution(object):
     def index(self, letter):
         return ord(letter) - 97
+    
     def isAnagram(self, s, t):
         """
         :type s: str
