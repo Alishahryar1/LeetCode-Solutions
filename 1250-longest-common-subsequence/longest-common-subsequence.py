@@ -1,15 +1,14 @@
 class Solution(object):
-    def helper(self, text1, text2, i, j, cache):
+    def helper(self, text1, text2, i, j, grid):
         if i == len(text1) or j == len(text2):
             return 0
-        key = (i, j)
-        if key in cache:
-            return cache[key]
+        if grid[i][j] >= 0:
+            return grid[i][j]
         if text1[i] == text2[j]:
-            cache[key] = 1 + self.helper(text1, text2, i + 1, j + 1, cache)
+            grid[i][j] = 1 + self.helper(text1, text2, i + 1, j + 1, grid)
         else:
-            cache[key] = max(self.helper(text1, text2, i, j + 1, cache), self.helper(text1, text2, i + 1, j, cache))
-        return cache[key]
+            grid[i][j] = max(self.helper(text1, text2, i, j + 1, grid), self.helper(text1, text2, i + 1, j, grid))
+        return grid[i][j]
     
     def longestCommonSubsequence(self, text1, text2):
         """
@@ -17,4 +16,5 @@ class Solution(object):
         :type text2: str
         :rtype: int
         """
-        return self.helper(text1, text2, 0, 0, {})
+        grid = [[-1] * len(text2) for _ in range(len(text1))]
+        return self.helper(text1, text2, 0, 0, grid)
