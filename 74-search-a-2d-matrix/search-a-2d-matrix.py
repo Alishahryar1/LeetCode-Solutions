@@ -5,8 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: bool
         """
-        L = 0
-        R = len(matrix) - 1
+        L, R = 0, len(matrix) - 1
         while (L <= R):
             m = (L + R)//2
             if target < matrix[m][0]:
@@ -15,9 +14,7 @@ class Solution(object):
                 L = m + 1
             else:
                 break
-        r = m
-        L = 0
-        R = len(matrix[m]) - 1
+        r, L, R = m, 0, len(matrix[m]) - 1
         while (L <= R):
             m = (L + R)//2
             if target < matrix[r][m]:
