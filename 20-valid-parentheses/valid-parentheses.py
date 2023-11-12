@@ -11,8 +11,8 @@ class Solution(object):
             if p in left:
                 stack.append(p)
             else:
-                if len(stack) == 0 or stack[-1] + p not in complete:
+                if not stack or stack[-1] + p not in complete:
                     return False
                 stack.pop()
-        print(stack)
-        return len(stack) == 0
+        
+        return not stack
