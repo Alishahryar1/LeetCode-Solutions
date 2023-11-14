@@ -10,15 +10,11 @@ class Solution(object):
         for pos, speed in zip(position, speed):
             cars.append((pos, float(speed)))
         
-        def key(item):
-            return item[0]
-        cars.sort(key = key)
+        cars.sort(key = lambda car: car[0])
         
-        i = len(cars) - 1
         stack = []
         
-        def time(car):
-            return (target - car[0])/car[1]
+        time = lambda car: (target - car[0])/car[1]
 
         for i in reversed(range(len(cars))):
             stack.append(cars[i])
