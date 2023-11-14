@@ -10,10 +10,9 @@ class Solution(object):
         for pos, speed in zip(position, speed):
             cars.append((pos, float(speed)))
         
-        cars.sort(key = lambda car: car[0])
-        
+        key = lambda car: car[0]
+        cars.sort(key = key)
         stack = []
-        
         time = lambda car: (target - car[0])/car[1]
 
         for i in reversed(range(len(cars))):
