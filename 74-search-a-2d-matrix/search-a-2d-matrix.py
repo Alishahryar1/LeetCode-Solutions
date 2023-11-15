@@ -14,6 +14,7 @@ class Solution(object):
                 L = m + 1
             else:
                 break
+        
         r, L, R = m, 0, len(matrix[m]) - 1
         while (L <= R):
             m = (L + R)//2
@@ -23,4 +24,5 @@ class Solution(object):
                 L = m + 1
             else:
                 return True
+        
         return False
