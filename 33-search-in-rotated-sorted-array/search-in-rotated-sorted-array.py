@@ -22,7 +22,6 @@ class Solution(object):
             else:
                 R = m - 1
         
-
         L, R = i, n + i - 1
         while (L <= R):
             m = (L + R)//2
@@ -33,4 +32,5 @@ class Solution(object):
                 L = m + 1
             else:
                 return index
+        
         return -1
