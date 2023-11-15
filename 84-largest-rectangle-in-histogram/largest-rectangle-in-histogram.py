@@ -13,7 +13,7 @@ class Solution(object):
                  maxArea = max(maxArea, (i - j) * h)
             stack.append((j, heights[i]))
         
-        while stack:
+        while (stack):
             i, h = stack.pop()
             maxArea = max(maxArea, (len(heights) - i) * h)
 
