@@ -16,4 +16,5 @@ class Solution(object):
                 L = m + 1
             else:
                 R = m - 1
+        
         return res
