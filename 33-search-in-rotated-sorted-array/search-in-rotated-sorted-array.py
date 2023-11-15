@@ -1,16 +1,4 @@
 class Solution(object):
-    def binarySearch(self, nums, L, R, target):
-        while(L <= R):
-            m = (L + R)//2
-            if target < nums[m]:
-                R = m - 1
-            elif target > nums[m]:
-                L = m + 1
-            else:
-                return m
-        
-        return -1
-    
     def search(self, nums, target):
         """
         :type nums: List[int]
@@ -35,10 +23,14 @@ class Solution(object):
                 R = m - 1
         
 
-        a = self.binarySearch(nums, 0, i - 1, target)
-        if a != -1:
-            return a
-        b = self.binarySearch(nums, i, n - 1, target)
-        if b != -1:
-            return b
+        L, R = i, n + i - 1
+        while (L <= R):
+            m = (L + R)//2
+            index = m % n
+            if target < nums[index]:
+                R = m - 1
+            elif target > nums[index]:
+                L = m + 1
+            else:
+                return index
         return -1
