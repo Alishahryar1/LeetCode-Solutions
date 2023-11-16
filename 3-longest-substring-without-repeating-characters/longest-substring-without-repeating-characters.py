@@ -13,9 +13,6 @@ class Solution(object):
                 while L <= i:
                     del chars[s[L]]
                     L += 1
-                chars[s[R]] = R
-                R += 1
-                continue
             chars[s[R]] = R
             maxlen = max(maxlen, R - L + 1)
             R += 1
