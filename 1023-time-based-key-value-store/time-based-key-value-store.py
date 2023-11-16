@@ -41,10 +41,7 @@ class TimeMap(object):
                 maxtimestamp = currtimestamp
                 i = m
                 break
-        if i >= 0:
-            return self.hashMap[key][i][0]
-        else:
-            return ""
+        return self.hashMap[key][i][0] if i >= 0 else ""
         
 
 
