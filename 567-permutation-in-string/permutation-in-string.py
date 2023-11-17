@@ -24,5 +24,4 @@ class Solution(object):
             char = s2[i - len(s1)]
             counts2[ord(char) - ord('a')] -= 1
             
-        
         return counts1 == counts2
