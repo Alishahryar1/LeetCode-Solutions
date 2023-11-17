@@ -13,7 +13,7 @@ class Solution(object):
         
         res = []
         for i in range(k):
-            d, x, y = heapq.heappop(pts)
+            _, x, y = heapq.heappop(pts)
             res.append([x, y])
         
         return res
