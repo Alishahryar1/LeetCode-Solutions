@@ -16,15 +16,13 @@ class Solution(object):
             char = s2[i]
             counts2[ord(char) - ord('a')] += 1
         
-        if counts1 == counts2:
-            return True
-        
         for i in range(len(s1), len(s2)):
+            if counts1 == counts2:
+                return True
             char = s2[i]
             counts2[ord(char) - ord('a')] += 1
             char = s2[i - len(s1)]
             counts2[ord(char) - ord('a')] -= 1
-            if counts1 == counts2:
-                return True
+            
         
-        return False
+        return counts1 == counts2
