@@ -1,4 +1,5 @@
 class Solution(object):
+    
     def validIndex(self, i, n):
         return i >= 0 and i < n
 
