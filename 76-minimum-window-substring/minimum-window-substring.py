@@ -22,15 +22,13 @@ class Solution(object):
         while (R < len(s)):
             if s[R] in Scounts:
                 Scounts[s[R]] += 1
-                if Scounts[s[R]] == Tcounts[s[R]]:
-                    have += 1  
+                have = have + 1 if (Scounts[s[R]] == Tcounts[s[R]]) else have
             while (have == need):
                 if R - L + 1 < res['R'] - res['L'] + 1:
                     res['L'], res['R'] = L, R
                 if s[L] in Scounts:
                     Scounts[s[L]] -= 1
-                    if Scounts[s[L]] < Tcounts[s[L]]:
-                        have -= 1
+                    have = have - 1 if (Scounts[s[L]] < Tcounts[s[L]]) else have
                 L += 1
             R += 1
         
