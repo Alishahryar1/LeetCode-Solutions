@@ -5,8 +5,6 @@ class Solution(object):
         :type mat2: List[List[int]]
         :rtype: List[List[int]]
         """
-        if len(mat1[0]) != len(mat2):
-            return None 
         res = [[0] * len(mat2[0]) for _ in range(len(mat1))]
         for i in range(len(mat1)):
             for j in range(len(mat2[0])):
