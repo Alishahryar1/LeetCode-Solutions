@@ -10,9 +10,8 @@ class Solution(object):
         minEle = float('inf')
         i = -1
         while (L <= R):
-            if nums[L] < nums[R]:
-                if nums[L] < minEle:
-                    i, minEle = L, nums[L]
+            if nums[L] < nums[R] and nums[L] < minEle:
+                i = L
                 break
             m = (L + R)//2
             if nums[m] < minEle:
