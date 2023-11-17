@@ -1,4 +1,7 @@
 class Solution(object):
+    def validIndex(self, i, n):
+        return i >= 0 and i < n
+
     def findMedianSortedArrays(self, nums1, nums2):
         """
         :type nums1: List[int]
@@ -16,9 +19,9 @@ class Solution(object):
         while True:
             mid = (L + R)//2
             i = half - mid - 2
-            if i >= 0 and i < n and mid + 1 < m and nums2[i] > nums1[mid + 1]:
+            if self.validIndex(i, n) and self.validIndex(mid + 1, m) and nums2[i] > nums1[mid + 1]:
                 L = mid + 1
-            elif i + 1 < n and i + 1 >= 0 and mid >= 0 and mid < m and nums1[mid] > nums2[i + 1]:
+            elif self.validIndex(i + 1, n) and self.validIndex(mid, m) and nums1[mid] > nums2[i + 1]:
                 R = mid - 1
             else:
                 if total % 2 == 1:
