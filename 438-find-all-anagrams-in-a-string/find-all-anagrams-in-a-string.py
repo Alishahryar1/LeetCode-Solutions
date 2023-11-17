@@ -12,13 +12,13 @@ class Solution(object):
         
         counts1 = [0] * 26
         counts2 = [0] * 26
-        res = []
         for i in range(len(p)):
             char = p[i]
             counts1[index(char)] += 1
             char = s[i]
             counts2[index(char)] += 1
         
+        res = []
         for i in range(len(p), len(s)):
             if counts1 == counts2:
                 res.append(i - len(p))
