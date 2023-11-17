@@ -20,7 +20,7 @@ class Solution(object):
         """
         ptr1, ptr2 = list1, list2
         head = tail = None
-        while ptr1 and ptr2:
+        while (ptr1 and ptr2):
             if ptr1.val < ptr2.val:
                 node = ptr1
                 ptr1 = ptr1.next
