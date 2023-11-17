@@ -16,6 +16,7 @@ class Solution(object):
         total = m + n
         half = (m + n)//2
         L, R = 0, m - 1
+        
         while True:
             mid = (L + R)//2
             i = half - mid - 2
