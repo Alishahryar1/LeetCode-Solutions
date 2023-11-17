@@ -28,11 +28,11 @@ class Solution(object):
             else:
                 node = ptr2
                 ptr2 = ptr2.next
-
             head, tail = self.insertAtTail(head, tail, node)
             
         if ptr1:
             head, tail = self.insertAtTail(head, tail, ptr1)
-        elif ptr2:
+        else:
             head, tail = self.insertAtTail(head, tail, ptr2)
+        
         return head
