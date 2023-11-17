@@ -10,7 +10,7 @@ class Solution(object):
             return -1
         leftHeight = self.helper(root.left)
         rightHeight = self.helper(root.right)
-        self.balanced = False if abs(leftHeight - rightHeight) > 1 else self.balanced
+        self.balanced = False if (abs(leftHeight - rightHeight) > 1) else self.balanced
         return 1 + max(leftHeight, rightHeight)
 
     def isBalanced(self, root):
