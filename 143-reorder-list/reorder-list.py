@@ -46,7 +46,7 @@ class Solution(object):
             node.next = None
             head1, tail1 = self.insert(head1, tail1, node)
             
-        head1, tail1 = self.insert(head1, tail1, ptr1) if (ptr1) else self.insert(head1, tail1, ptr2)
+        head1, tail1 = self.insert(head1, tail1, ptr1) if (ptr1) else head1, tail1
 
         return head1
 
