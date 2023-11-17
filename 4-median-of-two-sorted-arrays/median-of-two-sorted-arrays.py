@@ -37,8 +37,9 @@ class Solution(object):
                         a = max(a, nums1[mid])
                     if self.validIndex(i, n):
                         a = max(a, nums2[i])
+                    
                     b = float('inf')
-                    if mid + 1 < m:
+                    if self.validIndex(mid + 1, m):
                         b = min(b, nums1[mid + 1])
                     if i + 1 < n:
                         b = min(b, nums2[i + 1])
