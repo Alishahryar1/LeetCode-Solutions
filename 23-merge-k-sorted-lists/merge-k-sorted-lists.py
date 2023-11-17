@@ -29,7 +29,7 @@ class Solution(object):
         return head
     
     def helper(self, L, R, lists):
-        if L == R:
+        if L == R or len(lists) == 0:
             return lists[L]
         m = (L + R)//2
         left = self.helper(L, m, lists)
