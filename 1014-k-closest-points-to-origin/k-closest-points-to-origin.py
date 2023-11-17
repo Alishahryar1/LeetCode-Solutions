@@ -10,8 +10,10 @@ class Solution(object):
     
         pts = [[distance(x, y), x, y] for x, y in points]
         heapq.heapify(pts)
+        
         res = []
         for i in range(k):
             d, x, y = heapq.heappop(pts)
             res.append([x, y])
+        
         return res
