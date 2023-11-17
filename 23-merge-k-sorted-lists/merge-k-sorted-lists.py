@@ -4,24 +4,30 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def sort_key(self, ptr):
-        return ptr.val
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
         :rtype: ListNode
         """
-        List = []
-        for ptr in lists:
-            while ptr != None:
-                List.append(ptr)
-                ptr = ptr.next
-        List.sort(key = self.sort_key)
+        heap = []
+        for l in lists:
+            if l:
+                heapq.heappush(heap, (l.val, l))
         
-        if len(List) == 0:
-            return None
+        def insert(head, tail, node):
+            if tail == None:
+                head = tail = curr
+            else:
+                tail.next = curr
+                tail = curr
+            return head, tail
         
-        for i in range(len(List)):
-            List[i - 1].next = List[i]
-        List[-1].next = None
-        return List[0]
+        head = tail = None
+        while heap:
+            val, curr = heapq.heappop(heap)
+            if curr.next:
+                heapq.heappush(heap, (curr.next.val, curr.next))
+            curr.next = None
+            head, tail = insert(head, tail, curr)
+            
+        return head
