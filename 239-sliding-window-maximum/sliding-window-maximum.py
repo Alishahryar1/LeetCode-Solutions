@@ -5,19 +5,19 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        queue = deque()
+        q = deque()
         for i in range(k - 1):
-            while (queue and (queue[-1][1] < nums[i])):
-                queue.pop()
-            queue.append((i, nums[i]))
+            while (q and (nums[q[-1]] < nums[i])):
+                q.pop()
+            q.append(i)
+        
         res = []
         for i in range(k - 1, len(nums)):
-            while (queue and (queue[-1][1] < nums[i])):
-                queue.pop()
-            queue.append((i, nums[i]))
-            res.append(queue[0][1])
-            if queue[0][0] == i - k + 1:
-                queue.popleft()
+            while (q and (nums[q[-1]] < nums[i])):
+                q.pop()
+            q.append(i)
+            res.append(nums[q[0]])
+            if q[0] == i - k + 1:
+                q.popleft()
 
-            #print(queue)
         return res
