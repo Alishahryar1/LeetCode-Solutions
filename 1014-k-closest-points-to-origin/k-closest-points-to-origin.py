@@ -1,15 +1,14 @@
 class Solution(object):
     def distance(self, x, y):
         return x ** 2 + y ** 2
+    
     def kClosest(self, points, k):
         """
         :type points: List[List[int]]
         :type k: int
         :rtype: List[List[int]]
         """
-        pts = []
-        for x, y in points:
-            pts.append([self.distance(x, y), x, y])
+        pts = [[self.distance(x, y), x, y] for x, y in points]
         heapq.heapify(pts)
         res = []
         for i in range(k):
