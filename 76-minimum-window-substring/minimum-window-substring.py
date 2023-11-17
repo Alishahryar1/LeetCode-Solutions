@@ -6,7 +6,8 @@ class Solution(object):
         :rtype: str
         """
 
-        
+        if len(t) > len(s):
+            return ""
         
         Tcounts, Scounts = {}, {}
         for l in t:
