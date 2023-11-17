@@ -33,9 +33,9 @@ class Solution(object):
                     return a
                 else:
                     a = float('-inf')
-                    if mid >= 0 and mid < m:
+                    if self.validIndex(mid, m):
                         a = max(a, nums1[mid])
-                    if i >= 0 and i < n:
+                    if self.validIndex(i, n):
                         a = max(a, nums2[i])
                     b = float('inf')
                     if mid + 1 < m:
