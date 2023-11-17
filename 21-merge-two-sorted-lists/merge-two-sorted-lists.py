@@ -30,9 +30,6 @@ class Solution(object):
                 ptr2 = ptr2.next
             head, tail = self.insertAtTail(head, tail, node)
             
-        if ptr1:
-            head, tail = self.insertAtTail(head, tail, ptr1)
-        else:
-            head, tail = self.insertAtTail(head, tail, ptr2)
+        head, tail = self.insertAtTail(head, tail, ptr1) if (ptr1) else self.insertAtTail(head, tail, ptr2)
         
         return head
