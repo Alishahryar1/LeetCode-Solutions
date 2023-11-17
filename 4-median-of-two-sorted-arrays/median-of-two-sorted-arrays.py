@@ -41,7 +41,7 @@ class Solution(object):
                     b = float('inf')
                     if self.validIndex(mid + 1, m):
                         b = min(b, nums1[mid + 1])
-                    if i + 1 < n:
+                    if self.validIndex(i + 1, n):
                         b = min(b, nums2[i + 1])
                     return (a + b)/2.0
 
