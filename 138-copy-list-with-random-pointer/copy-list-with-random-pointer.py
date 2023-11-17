@@ -29,7 +29,6 @@ class Solution(object):
             newNode.next = temp
             curr = curr.next.next
         
-
         curr = head
         while (curr != None):
             curr.next.random = curr.random.next if (curr.random != None) else None
