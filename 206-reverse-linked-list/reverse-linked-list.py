@@ -11,9 +11,9 @@ class Solution(object):
         """
         prev = None
         while (head != None):
-            next = head.next
+            temp = head.next
             head.next = prev
             prev = head
-            head = next
+            head = temp
         
         return prev
