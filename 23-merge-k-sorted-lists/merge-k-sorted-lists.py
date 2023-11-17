@@ -9,10 +9,7 @@ class Solution(object):
         :type lists: List[ListNode]
         :rtype: ListNode
         """
-        heap = []
-        for l in lists:
-            if l:
-                heap.append((l.val, l))
+        heap = [(l.val, l) for l in lists if l]
         heapq.heapify(heap)
         
         def insert(head, tail, node):
