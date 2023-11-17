@@ -7,6 +7,7 @@ class Solution(object):
         """
         if len(p) > len(s):
             return []
+        
         def index(char):
             return ord(char) - ord('a')
         
