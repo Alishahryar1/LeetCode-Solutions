@@ -7,6 +7,7 @@ class Solution(object):
         """
         if len(s1) > len(s2):
             return False
+        
         counts1 = [0] * 26
         counts2 = [0] * 26
         for i in range(len(s1)):
@@ -14,8 +15,10 @@ class Solution(object):
             counts1[ord(char) - ord('a')] += 1
             char = s2[i]
             counts2[ord(char) - ord('a')] += 1
+        
         if counts1 == counts2:
             return True
+        
         for i in range(len(s1), len(s2)):
             char = s2[i]
             counts2[ord(char) - ord('a')] += 1
