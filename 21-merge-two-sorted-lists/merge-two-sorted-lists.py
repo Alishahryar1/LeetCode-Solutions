@@ -5,12 +5,11 @@
 #         self.next = next
 class Solution(object):
     def insertAtTail(self, head, tail, node):
-        if head == tail == None:
+        if tail == None:
             head = tail = node
-            return head, tail
-
-        tail.next = node
-        tail = node
+        else:
+            tail.next = node
+            tail = tail.next
         return head, tail
     
     def mergeTwoLists(self, list1, list2):
@@ -28,6 +27,7 @@ class Solution(object):
             else:
                 node = ptr2
                 ptr2 = ptr2.next
+            node.next = None
             head, tail = self.insertAtTail(head, tail, node)
             
         head, tail = self.insertAtTail(head, tail, ptr1) if (ptr1) else self.insertAtTail(head, tail, ptr2)
