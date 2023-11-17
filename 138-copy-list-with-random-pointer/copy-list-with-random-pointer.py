@@ -43,8 +43,5 @@ class Solution(object):
             node.next = None
             head1, tail1 = self.insert(head1, tail1, node)
             curr = curr.next
-        return head1
-
-        return None
-
         
+        return head1    
