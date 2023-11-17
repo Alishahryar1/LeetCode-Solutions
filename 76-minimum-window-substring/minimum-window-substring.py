@@ -32,4 +32,4 @@ class Solution(object):
                 L += 1
             R += 1
         
-        return "" if (res['R'] == len(s)) else "".join(s[res['L']:res['R'] + 1])
+        return "".join(s[res['L']:res['R'] + 1]) if (res['R'] < len(s)) else ""
