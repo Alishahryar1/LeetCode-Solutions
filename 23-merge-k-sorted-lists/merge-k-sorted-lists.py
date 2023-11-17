@@ -12,7 +12,8 @@ class Solution(object):
         heap = []
         for l in lists:
             if l:
-                heapq.heappush(heap, (l.val, l))
+                heap.append((l.val, l))
+        heapq.heapify(heap)
         
         def insert(head, tail, node):
             if tail == None:
@@ -29,5 +30,5 @@ class Solution(object):
                 heapq.heappush(heap, (curr.next.val, curr.next))
             curr.next = None
             head, tail = insert(head, tail, curr)
-            
+
         return head
