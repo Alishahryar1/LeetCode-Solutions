@@ -44,8 +44,3 @@ class Solution(object):
                     if self.validIndex(i + 1, n):
                         b = min(b, nums2[i + 1])
                     return (a + b)/2.0
-
-
-
-        
-        return 0
