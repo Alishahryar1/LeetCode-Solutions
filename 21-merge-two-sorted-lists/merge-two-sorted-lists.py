@@ -4,44 +4,35 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    def insertAtTail(self, head, tail, node):
+        if head == tail == None:
+            head = tail = node
+            return head, tail
+
+        tail.next = node
+        tail = node
+        return head, tail
+    
     def mergeTwoLists(self, list1, list2):
         """
         :type list1: Optional[ListNode]
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        
-        if list1 == None:
-            return list2
-        if list2 == None:
-            return list1
-        a = list1
-        b = list2
-        if list1.val <= list2.val:
-            head = list1
-            a = a.next
-            head.next = None
-        else:
-            head = list2
-            b = b.next
-            head.next = None
-        
-        curr = head
-        while True:
-            if a == None:
-                curr.next = b
-                break
-            if b == None:
-                curr.next = a
-                break
-            if a.val <= b.val:
-                curr.next = a
-                curr = curr.next
-                a = a.next
+        ptr1, ptr2 = list1, list2
+        head = tail = None
+        while ptr1 and ptr2:
+            if ptr1.val < ptr2.val:
+                node = ptr1
+                ptr1 = ptr1.next
             else:
-                curr.next = b
-                curr = curr.next
-                b = b.next
-            curr.next = None
-        
+                node = ptr2
+                ptr2 = ptr2.next
+
+            head, tail = self.insertAtTail(head, tail, node)
+            
+        if ptr1:
+            head, tail = self.insertAtTail(head, tail, ptr1)
+        elif ptr2:
+            head, tail = self.insertAtTail(head, tail, ptr2)
         return head
