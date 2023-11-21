@@ -9,7 +9,6 @@ class Solution(object):
             while (s[R] in chars):
                 del chars[s[L]]
                 L += 1
-
             chars[s[R]] = R
             maxlen = max(maxlen, R - L + 1)
             R += 1
