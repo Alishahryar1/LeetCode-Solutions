@@ -6,11 +6,9 @@ class Solution(object):
         """
         L, R, chars, maxlen = 0,0,{},0
         while R < len(s):
-            if s[R] in chars:
-                i = chars[s[R]]
-                while L <= i:
-                    del chars[s[L]]
-                    L += 1
+            while (s[R] in chars):
+                del chars[s[L]]
+                L += 1
 
             chars[s[R]] = R
             maxlen = max(maxlen, R - L + 1)
