@@ -4,11 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        m = 0
-        heap = []
+        a = b = 0
         for n in nums:
-            if len(heap) < 2:
-                heapq.heappush(heap, n)
-            elif heap[0] < n:
-                heapq.heappushpop(heap, n)
-        return (heap[0] - 1) * (heap[1] - 1)
+            if n > a:
+                a, b  = n, a
+            elif n > b:
+                b = n
+        return (a - 1) * (b - 1)
