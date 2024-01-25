@@ -39,15 +39,14 @@ class Solution(object):
                 else:
                     hashmap[e] = i
         ans_map = {}
-        for i, index in enumerate(UF.par):
-            index = UF.find(index)
-            if index not in ans_map:
-                ans_map[index] = set()
-            ans_map[index] =  ans_map[index].union(accounts[i][1:])
+        for e, i in hashmap.items():
+            group = UF.find(i)
+            if group not in ans_map:
+                ans_map[group] = []
+            ans_map[group].append(e)
         ans = []
         for i, L in ans_map.items():
-            ans.append([accounts[i][0]])
-            ans[-1] += sorted(list(L))
+            ans.append([accounts[i][0]] + sorted(list(L)))
 
 
         return ans
