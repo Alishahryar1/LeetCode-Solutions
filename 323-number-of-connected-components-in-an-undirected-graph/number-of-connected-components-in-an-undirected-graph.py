@@ -32,8 +32,7 @@ class Solution(object):
         :rtype: int
         """
         uf = UnionFind(n)
-        for a, b in edges:
-            uf.union(a, b)
+        for a, b in edges: uf.union(a, b)
         ans = set()
         for i in range(n): ans.add(uf.find(i))
         return len(ans)
