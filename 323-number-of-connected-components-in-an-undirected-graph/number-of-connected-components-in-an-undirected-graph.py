@@ -35,6 +35,6 @@ class Solution(object):
         for a, b in edges:
             uf.union(a, b)
         ans = set()
-        for i, _ in enumerate(uf.par):
+        for i in range(n):
             ans.add(uf.find(i))
         return len(ans)
