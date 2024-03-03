@@ -1,18 +1,18 @@
 class Solution(object):
-
-    def helper(self, nums, output, i, subset):
+    def helper(self, i, nums, stack, subsets):
         if i == len(nums):
-            output.append(subset)
+            subsets.append(stack[:])
             return
-            
-        self.helper(nums, output, i + 1, subset + [nums[i]])
-        self.helper(nums, output, i + 1, subset)
+        self.helper(i + 1, nums, stack, subsets)
+        stack.append(nums[i])
+        self.helper(i + 1, nums, stack, subsets)
+        stack.pop()
 
     def subsets(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        output = []
-        self.helper(nums, output, 0, [])
-        return output
+        subsets = []
+        self.helper(0, nums, [], subsets)
+        return subsets
